@@ -1,4 +1,4 @@
-accelerate==1.7.0
+# accelerate==1.7.0
 asttokens==3.0.0
 bm3d==4.0.3
 bm4d==4.2.5
