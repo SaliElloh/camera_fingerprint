@@ -1,9 +1,11 @@
-opencv-python
 numpy
+opencv-python
+scikit-learn
 scikit-image
 matplotlib
-PyWavelets
-scipy
-scikit-learn
 Pillow
 bm3d
+PyWavelets
+tqdm
+jupyter
+scipy
