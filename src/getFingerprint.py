@@ -65,7 +65,9 @@ def getFingerprint(Images, sigma=3., fromHowMany=-1):
                 print('Not a color image - skipped.\n')
                 continue # only color images will be used
             if set([M,N,three]) != set(X.shape):
-                print('\n Skipping image %(im)s of size %(s1)d x %(s2)d x %(s3)d \n' %{'im':im,'s1':s(1-1),'s2':s(2-1),'s3':s(3-1)})
+                print('\n Skipping image %(im)s of size %(s1)d x %(s2)d x %(s3)d \n' % {
+                    'im': im, 's1': s[0], 's2': s[1], 's3': s[2]
+                })
                 continue # only same size images will be used
 
         # The image will be the t-th image used for the reference pattern RP

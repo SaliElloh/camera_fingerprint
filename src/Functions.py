@@ -3,10 +3,12 @@ Please read the copyright notice located on the readme file (README.md).
 """
 import numpy as np
 from scipy import special
-import src.Filter as Ft
+# import src.Filter as Ft
 
 
 def crosscorr(array1, array2):
+    import src.Filter as Ft
+
     """
     Computes 2D cross-correlation of two 2D arrays.
     
@@ -198,6 +200,8 @@ def LinearPattern(X):
 
 
 def NoiseExtract(Im,qmf,sigma,L):
+    import src.Filter as Ft
+
     """
     Extracts noise signal that is locally Gaussian N(0,sigma^2)
 
@@ -403,6 +407,8 @@ def Saturation(X, gray=False):
 
 
 def SeeProgress(i):
+    import src.Filter as Ft
+
     """
     SeeProgress(i) outputs i without performing carriage return
     This function is designed to be used in slow for-loops to show how the 
@@ -414,6 +420,8 @@ def SeeProgress(i):
 
 
 def WienerInDFT(ImNoise,sigma):
+    import src.Filter as Ft
+
     """
     Removes periodical patterns (like the blockness) from input noise in 
     frequency domain
