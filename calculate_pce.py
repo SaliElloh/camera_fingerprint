@@ -13,7 +13,6 @@ import src.maindir as md
 
 camera_dir = '/scratch/hafiz_root/hafiz1/selloh/Dresden_sample_dataset'
 camera_lst = os.listdir(camera_dir)
-# test_dir = '/data/Sali/camera_fingerprint/test_dataset'
 pce_res_dir = '/home/selloh/camera_fingerprint/pce_results'
 fingerprint_dir = '/home/selloh/camera_fingerprint/dresden_prnu'
 os.makedirs(pce_res_dir, exist_ok=True)
