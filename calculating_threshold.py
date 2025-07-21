@@ -36,12 +36,18 @@ camera_dir = '/scratch/hafiz_root/hafiz1/selloh/Dresden_sample_dataset'
 test_dir = '/data/Sali/camera_fingerprint/test_dataset'
 pce_res_dir = '/home/selloh/camera_fingerprint/pce_results'
 fingerprint_dir = '/home/selloh/camera_fingerprint/dresden_prnu'
+threshold_plts_output_dir = '/data/Sali/camera_fingerprint/threshold_plots'
+os.makedirs(threshold_plts_output_dir, exist_ok=True)
+
 
 
 list_of_dirs = [os.path.join(pce_res_dir, csv) for csv in os.listdir(pce_res_dir)]
 
 for dir in list_of_dirs:
+    camera_name = (dir.split('/')[5])
+    camera_name = camera_name.split('.')[0]
     df = pd.read_csv(dir)
+
     df['label'] = (df['camera_fingerprint'] == df['test_img']).astype(int)
 
     # True matches
@@ -60,7 +66,7 @@ for dir in list_of_dirs:
     plt.plot(fpr, tpr, marker='.')
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
-    plt.title("ROC Curve")
+    plt.title(f"ROC Curve for {camera_name}")
     plt.grid()
 
     # Optional: Plot best threshold (Youden’s J)
@@ -68,4 +74,9 @@ for dir in list_of_dirs:
     optimal_thresh = thresholds[youden_idx]
     plt.axvline(fpr[youden_idx], linestyle='--', color='red', label=f"Best Threshold = {optimal_thresh:.2f}")
     plt.legend()
+
+    save_path = os.path.join(threshold_plts_output_dir, f"{camera_name}.jpg")
+    plt.savefig(save_path)
     plt.show()
+    plt.close()
+
